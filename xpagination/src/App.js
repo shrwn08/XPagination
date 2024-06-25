@@ -28,6 +28,10 @@ function App() {
     fetchData();
   }, []);
 
+  if (error) {
+    window.alert(error);
+  }
+
   return (
     <div>
       <EmployeeTable data={employeeData} />
