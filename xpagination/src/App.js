@@ -5,6 +5,7 @@ import EmployeeTable from "./Components/EmployeeTable";
 
 function App() {
   const [employeeData, setEmployeeData] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async() => {
@@ -16,9 +17,11 @@ function App() {
         // setEmployeeData(response.data);
         if (response.status === 200) {
           setEmployeeData(response.data);
+        }else{
+          setError("Failed to fetch data");
         }
       } catch (error) {
-        console.log("unable to fetch data", error);
+        setError("Failed to fetch data");
       }
     };
 
